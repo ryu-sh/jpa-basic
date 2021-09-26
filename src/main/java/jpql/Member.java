@@ -25,13 +25,6 @@ public class Member {
     protected Member() {
     }
 
-    public Member(Long id, String userName, int age, Team team, List<Order> orders) {
-        this.id = id;
-        this.userName = userName;
-        this.age = age;
-        this.team = team;
-        this.orders = orders;
-    }
 
     public Long getId() {
         return id;
@@ -51,5 +44,26 @@ public class Member {
 
     public List<Order> getOrders() {
         return orders;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }
